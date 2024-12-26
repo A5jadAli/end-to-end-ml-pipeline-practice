@@ -1,9 +1,8 @@
 data_ingestion:
   test_size: 0.3
-
 model_building:
   n_estimators: 45
-  max_depth : 4
+  max_depth: 4
   min_samples_split: 2
   min_samples_leaf: 1
   random_state: 42
