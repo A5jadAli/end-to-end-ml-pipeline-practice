@@ -3,8 +3,8 @@ stages:
         cmd: python src/data_ingestion.py
         deps:
             - src/data_ingestion.py
-        # params:
-        #     - data_ingestion.test_size
+        params:
+            - data_ingestion.test_size
         outs:
             - data/raw
     data_preprocessing:
@@ -26,6 +26,12 @@ stages:
         deps:
             - data/engineered
             - src/model_building.py
+        params:
+            - model_building.n_estimators
+            - model_building.max_depth
+            - model_building.min_samples_split
+            - model_building.min_samples_leaf
+            - model_building.random_state
         outs:
             - models/random_forest_model.pkl
     model_evaluation:
