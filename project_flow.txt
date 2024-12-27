@@ -1,5 +1,5 @@
 Building Pipeline:
-> Crrate a Github repo and clone it in your local (add a folder named experiments that will contain initial data and notebook)
+> Create a Github repo and clone it in your local (add a folder named experiments that will contain initial data and notebook)
 > Add src folder along with all components (run them individually)
 > Add data, model, reports directories to .gitignore file
 > Now git add, commit, push
@@ -25,9 +25,21 @@ Experiments with dvc:
 > change params, re-run code (produce new experiments)
 > do git add, commit, push
 
+Adding a remote S3 storage for DVC:
+> login to aws console
+> create an IAM user
+> create S3 (use unique name for it)
+> pip install dvc[s3]
+> pip install awscli
+> "aws configure"
+> git remote add -d dvcstore s3://bucketname
+> dvc commit, push the exp outcome that you want to use
+> finally git add, commit, push
 
 
-
+Extras:
+> delete aws resources
+> adding stages to dvc.yaml from terminal (if you don't wanna add stages maually in dvc.yaml file): "dvc stage add -n data_ingestion -d src/data_ingestion.py -o data/raw python src/data_ingestion.py"
 
 
 
